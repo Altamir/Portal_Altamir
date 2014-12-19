@@ -1,10 +1,12 @@
 <?php
-include_once 'smarty/libs/Smarty.class.php';
+include_once 'smarty/libs/SmartyBC.class.php';
+
 $sm = new SmartyBC();
-$sm->addConfigDir("smarty/configs/");
-$sm->addTemplateDir("smarty/templates/");
+$sm->setConfigDir("smarty/configs");
+$sm->setCompileDir("smarty/templates_c");
+$sm->setTemplateDir("smarty/templates");
 
-$smarty->assign("titulo", "Hello World!");
-$smarty->assign("corpo", "Testando se smarty foi configurado corretamene!");
+$sm->assign("titulo", "Hello World!");
+$sm->assign("teste", "Testando se smarty foi configurado corretamene!");
 
-$smarty->display("teste.tpl");
+$sm->display("teste.tpl");
