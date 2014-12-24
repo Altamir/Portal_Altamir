@@ -42,7 +42,7 @@
                             <a href="sobre.php">Sobre</a>
                         </li>
                         <li>
-                            <a href="#">Contatos</a>
+                            <a href="contato.php">Contatos</a>
                         </li>
                     </ul>
                 </div>

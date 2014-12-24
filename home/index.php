@@ -5,5 +5,5 @@ $sm = new SmartyPortal();
 
 $sm->assign("titulo", "Teste Smarty!");
 $sm->assign("teste", "Smarty configurado com sucesso!!!");
-$sm->debugar();
+//$sm->debugar();
 $sm->display("teste.tpl");
