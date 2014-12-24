@@ -1,20 +1,9 @@
-<html lang="pt-br"><head>
-        <title>{$titulo}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
-        
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="header">
-                <div id="header_texto">     
-                    <h1>
-                        {$teste}                   
-                    </h1>
-                    
-                </div>                
-            </div>            
+{include file='topo.tpl' } 
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-success"><h1>Smarty configurado com sucesso!!!</div>
         </div>
-        <footer>            
-        </footer>
-    
-</body></html>
+    </div>
+</div>
+{include file='footer.tpl' }  
