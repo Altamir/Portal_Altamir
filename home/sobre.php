@@ -1,7 +1,10 @@
 <?php
 include_once '../configs/SmartyPortal.php';
-
+include_once './DAO/MateriaDAO.class.php';
 $sm = new SmartyPortal();
+
+$materiaDAO = MateriaDAO::getInstacia();
+$sm->assign("smMaterias",$materiaDAO->getAll());
 
 $sm->assign("titulo", "Sobre");
 $sm->assign("p1", "Projeto criado com o intuito de praticar conhecimentos"

@@ -34,9 +34,9 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Materias<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Jogos para Web</a></li>
-                                <li><a href="http://altamir.hol.es/jogo/">Análise e Projeto de Software</a></li>
-                                <li><a href="#">Materia a ser definida</a></li>                                
+                            {section name=iten loop=$smMaterias start=1}
+                                <li><a href="{$smMaterias[iten]->getUrl()}">{$smMaterias[iten]->getNome()}</a></li>                                  
+                            {/section}
                             </ul>
                         </li>                        
                         <li>

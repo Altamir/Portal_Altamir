@@ -8,9 +8,12 @@
     <div class="row">
         <div class="col-xs-offset-2 ">
 
-            <img  class="img-responsive" src="{$img_cons}" alt="Site em construção" /> 
+            <p>id: {$ass->getId()} Nome: {$ass->getNome()}</p>
+
             
-            
+            {section  name=assunto loop=$assun start=1}
+                <p>{$assun[assunto]->getId()} Nome  {$assun[assunto]->getNome()}</p>
+            {/section}
         </div>
     </div>
 </div>

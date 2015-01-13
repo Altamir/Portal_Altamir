@@ -28,5 +28,18 @@ class AssuntoDAO {
        }       
        return $colecao;
     }
+    
+    public function getByID($id) {
+        $sql = "SELECT * FROM assunto WHERE id = :id";
+        $obj = null;
+        $st = BD::getInstacia()->prepare($sql);
+        $st->bindParam(":id", $id);
+        $st->execute();
+        if( ($linha = $st->fetch()) !== FALSE){
+            $obj = new Assunto($linha['nome']);
+            $obj->setId($linha['id']);
+        }
+        return $obj;
+    }
 
 }
