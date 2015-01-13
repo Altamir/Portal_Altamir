@@ -3,17 +3,18 @@ include_once '../BD/BD.php';
 
 class AssuntoDAO {
     
-    private $conexao;
+   
     private $assunto;
     
     function __construct() {
-        $bd = new BD();
-        $this->conexao = $bd->newCon();
+        
     }
     
     function getAll() {
+       $bd = new BD();
+       $con = $bd->newCon();
        $sql = "SELECT * FROM assunto";
-       $resul = $this->conexao->query($sql);
+       $resul = $con->query($sql);
        return $resul;
     }
 
