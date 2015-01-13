@@ -5,13 +5,17 @@
 
             <img  class="img-responsive" src="{$img_cons}" alt="Site em construção" /> 
 
-        </div>
+        </div>        
         <div class="row">
             <div class="col-xs-12">
                 <div class="jumbotron">
-                    <p>{$p1}</p>
-                    <p>{$p2}</p>
-                    <p>{$p3}</p>
+                {section name=iten loop=$secoes}
+                    {if $secoes[iten]->getTag() eq 'link'}
+                    <a class="btn btn-primary btn-lg " href="{$secoes[iten]->getCorpo()}">GitHub</a>
+                    {else}
+                    <p>{$secoes[iten]->getCorpo()}</p>  
+                    {/if}                       
+                {/section}
                 </div>
             </div>
         </div>
