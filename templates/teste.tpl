@@ -9,7 +9,8 @@
         <div class="col-xs-offset-2 ">
 
             <img  class="img-responsive" src="{$img_cons}" alt="Site em construção" /> 
-
+            
+            
         </div>
     </div>
 </div>

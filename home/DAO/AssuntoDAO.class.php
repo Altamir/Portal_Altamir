@@ -1,5 +1,6 @@
 <?php
-include_once '../BD/BD.php';
+include_once 'BD.php';
+include_once 'model/Assunto.class.php';
 
 class AssuntoDAO {
     
@@ -11,11 +12,15 @@ class AssuntoDAO {
     }
     
     function getAll() {
-       $bd = new BD();
-       $con = $bd->newCon();
        $sql = "SELECT * FROM assunto";
-       $resul = $con->query($sql);
-       return $resul;
+       $assuntos = BD::getInstacia()->query($sql)->fetchAll();
+       $colecao[] = array();
+       foreach ($assuntos as $assunto) {
+           $aux = new Assunto($assunto['nome']);
+           $aux->setId($assunto['id']);
+           $colecao[] = $aux;
+       }       
+       return $colecao;
     }
 
 }
