@@ -11,7 +11,7 @@
                 <div class="jumbotron">
                 {section name=iten loop=$secoes}
                     {if $secoes[iten]->getTag() eq 'link'}
-                    <a class="btn btn-primary btn-lg " href="{$secoes[iten]->getCorpo()}">GitHub</a>
+                    <a class="btn btn-primary btn-lg " href="{$secoes[iten]->getCorpo()}">Veja o Codigo no GitHub</a>
                     {else}
                     <p>{$secoes[iten]->getCorpo()}</p>  
                     {/if}                       
