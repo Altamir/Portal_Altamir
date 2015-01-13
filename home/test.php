@@ -8,7 +8,7 @@ $sm->assign("titulo", "Teste Smarty!");
 $sm->assign("teste", "Smarty configurado com sucesso!!!");
 $sm->assign("pg_atual","Pagina teste PDO");
 
-$assun = new AssuntoDAO();
+$assun = AssuntoDAO::getInstacia();
 
 
 
