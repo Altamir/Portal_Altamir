@@ -20,8 +20,15 @@ class Artigo {
     function getTitulo() {
         return $this->titulo;
     }
+    function getId() {
+        return $this->id;
+    }
 
-    function getAutor() {
+    function setId($id) {
+        $this->id = $id;
+    }
+
+        function getAutor() {
         return $this->autor;
     }
 
