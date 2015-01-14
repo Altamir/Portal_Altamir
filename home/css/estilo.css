@@ -11,3 +11,11 @@ and open the template in the editor.
 body {
     margin-top: 60px;
 }
+
+.anuncioFooter{
+    margin-top: 15px;
+    padding-top: 20px;
+    margin-right:  50px;
+    text-align: center;
+    
+}
