@@ -11,7 +11,7 @@ $sm->assign("smMaterias", $materiaDAO->getAll());
 
 $sm->assign("titulo", "Contato");
 $sm->assign("pg_atual", "Contato");
-$sm->assign("test", "Pagina com formulario, não esta Funcional.");
+$sm->assign("test", "");
 $sm->assign("secret_key", "6LcooAATAAAAAMvBFRmhbZMraX8XDViQaecfk1rb");
 
 if (isset($_POST['g-recaptcha-response'])) {
