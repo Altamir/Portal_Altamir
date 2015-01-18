@@ -13,7 +13,7 @@
 
                         <div class="form-group">                   
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email" required class="form-control">
+                                <input id="email" name="email" type="text" placeholder="Email" required class="form-control ">
                             </div>
                         </div>
 
@@ -30,9 +30,9 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LcooAATAAAAAL09ajns1nMq4UZjJYB4t2fWjSA8" data-callback="retornoRecaptcha"></div>
+                            <div class="g-recaptcha col-sm-3" data-sitekey="6LcooAATAAAAAL09ajns1nMq4UZjJYB4t2fWjSA8" data-callback="retornoRecaptcha"></div>
                             
-                            <div class="col-md-8 text-right">
+                            <div class="col-sm-2 text-right">
                                 <button type="submit" id='btnEnviar' class="btn btn-primary btn-lg" disabled="">Enviar</button>
                             </div>
                         </div>

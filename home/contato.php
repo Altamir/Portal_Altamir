@@ -2,6 +2,7 @@
 
 include_once '../configs/SmartyPortal.php';
 include_once './DAO/MateriaDAO.class.php';
+include_once '../libs/Email.php';
 
 $sm = new SmartyPortal();
 
@@ -20,9 +21,12 @@ if (isset($_POST['g-recaptcha-response'])) {
     $dados = json_decode(file_get_contents($url));
 
     if ($dados->success == true) {
-        if(isset($_POST['name']))
-            $name = $_POST['name'];
-        $sm->assign("test", $name.", Infelizmente o sistema de Contatos não esta em Funcionameto.");
+        if(isset($_POST['name']) && isset($_POST['email'])){
+            $email = new Email('contato@altamir.com.br', $_POST['email'], $_POST['name'], $_POST['message'], "Contato Site", $_POST['phone']);
+            $email->enviaEmail();
+        }
+           
+        $sm->assign("test", $_POST['name'].", Sua mensagem foi encaminhada.");
     } else {
          $sm->assign("test","Segundo o Google parentemente você é um robô, que pena!");        
     }

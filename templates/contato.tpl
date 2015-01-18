@@ -1,7 +1,7 @@
 {include file='include/topo.tpl' } 
 <div class="container">
     {if $test != ''}
-        {if $test eq 'Aparentemente você é um robô, que pena!'}
+        {if $test eq 'Segundo o Google parentemente você é um robô, que pena!'}
             <div class="row">
                 <div class="col-xs-12">
                     <div class="alert alert-danger">
