@@ -3,7 +3,7 @@
             <div class="col-sm-12">
                 <form class="form-horizontal" method="post">
                     <fieldset>
-                        <legend class="text-center header">Entre em Contato com nós.</legend>
+                        <legend class="text-center header">Entre em Contato.</legend>
 
                         <div class="form-group">                    
                             <div class="col-md-8">
