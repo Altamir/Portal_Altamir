@@ -22,8 +22,13 @@ if (isset($_POST['g-recaptcha-response'])) {
     if ($dados->success == true) {
         if(isset($_POST['name']) && isset($_POST['email'])){
             $email = new EmailContato('contato@altamir.com.br', $_POST['email'], $_POST['name'], $_POST['message'], "Contato Site", $_POST['phone']);
-            $email->enviaEmail();
-            $sm->assign("error", $_POST['name'].", Sua mensagem foi encaminhada.");
+            
+            if ($email->enviaEmail()) {
+                $sm->assign("error", $_POST['name'].", Sua mensagem foi encaminhada.");
+            }  else {
+                $sm->assign("error", $_POST['name'].", Tivemos alguns problemas ao enviar sua mensagen.<br /> Tente mais tarde");
+            }
+            
         }         
     } else {
          $sm->assign("error","Segundo o Google parentemente você é um robô, que pena!");        
