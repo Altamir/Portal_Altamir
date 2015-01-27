@@ -6,23 +6,20 @@
  *
  * @author Altamir
  */
-class Email {
+abstract class Email {
 
     private $destino;
     private $remetente;
     private $nome;
     private $mensagem;
     private $assunto;
-    private $tel;
 
-    
-        function __construct($destino, $remetente, $nome, $mensagem, $assunto, $tel) {
+    function __construct($destino, $remetente, $nome, $mensagem, $assunto) {
         $this->destino = $destino;
         $this->remetente = $remetente;
         $this->nome = $nome;
         $this->mensagem = $mensagem;
         $this->assunto = $assunto;
-        $this->setTel($tel);
     }
 
     public function enviaEmail() {
@@ -30,16 +27,9 @@ class Email {
         mail($this->getDestino(), $this->getAssunto(), $this->getMensagem(), $this->preparaHeaders());
     }
 
-    private function preparaMesagem() {
-        $msg = "Nome: ".$this->getNome();
-        $msg .= "<br />Telefone: ".$this->getTel();
-        $msg .= "<br />Email: ".  $this->getRemetente();
-        $msg .= "<br />Assunto:<br />";
-        $msg .= $this->getMensagem();
-        $this->setMensagem($msg);
-    }
-    
-    private function preparaHeaders() {
+    protected abstract function preparaMesagem();
+
+    protected function preparaHeaders() {
         $headers = "Content-Type:text/html; charset=UTF-8\n";
         $headers .= "From: altamir.com.br<" . $this->getRemetente() . ">\n";
         $headers .= "X-Sender: <" . $this->getRemetente() . ">\n";
@@ -75,15 +65,6 @@ class Email {
         $this->remetente = $remetente;
     }
     
-    function getTel() {
-        return $this->tel;
-    }
-
-    function setTel($tel) {
-        $this->tel = $tel;
-    }
-
-
     function setNome($nome) {
         $this->nome = $nome;
     }
