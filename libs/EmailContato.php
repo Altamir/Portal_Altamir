@@ -15,12 +15,7 @@ class EmailContato extends Email {
     function __construct($destino, $remetente, $nome, $mensagem, $assunto, $tel) {
         parent::__construct($destino, $remetente, $nome, $mensagem, $assunto);
         $this->setTelefone($tel);
-    }
-
-    public function enviaEmail() {
-        $this->preparaMesagem();
-        mail($this->getDestino(), $this->getAssunto(), $this->getMensagem(), $this->preparaHeaders());
-    }
+    }   
 
     protected function preparaMesagem() {
         $msg = "Nome: " . $this->getNome();

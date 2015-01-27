@@ -21,14 +21,15 @@ abstract class Email {
         $this->mensagem = $mensagem;
         $this->assunto = $assunto;
     }
+    
+    protected abstract function preparaMesagem();
 
     public function enviaEmail() {
         $this->preparaMesagem();
         mail($this->getDestino(), $this->getAssunto(), $this->getMensagem(), $this->preparaHeaders());
     }
 
-    protected abstract function preparaMesagem();
-
+    
     protected function preparaHeaders() {
         $headers = "Content-Type:text/html; charset=UTF-8\n";
         $headers .= "From: altamir.com.br<" . $this->getRemetente() . ">\n";
