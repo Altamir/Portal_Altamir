@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Classe responsavel por montar email e envia-lo
+ * 
  * 
  *
  * @author Altamir
