@@ -26,7 +26,7 @@
                     {else}
                         <p>{$secoes[iten]->getCorpo()}</p>  
                     {/if}                       
-                {/section}
+                {/section}                
             </div>
         </div>
     </div>
