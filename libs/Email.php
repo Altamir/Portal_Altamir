@@ -29,7 +29,6 @@ abstract class Email {
         mail($this->getDestino(), $this->getAssunto(), $this->getMensagem(), $this->preparaHeaders());
     }
 
-    
     protected function preparaHeaders() {
         $headers = "Content-Type:text/html; charset=UTF-8\n";
         $headers .= "From: altamir.com.br<" . $this->getRemetente() . ">\n";
@@ -38,7 +37,6 @@ abstract class Email {
         $headers .= "X-IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
         $headers .= "Return-Path: <" . $this->getRemetente() . ">\n";
         $headers .= "MIME-Version: 1.0\n";
-
         return $headers;
     }
 

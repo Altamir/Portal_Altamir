@@ -25,13 +25,6 @@
     <div class="row">
         {include file='include/form_contato.tpl'}
     </div>
-    <div class="row">
-        <div class="col-xs-offset-2 ">
-
-            <img  class="img-responsive" src="{$img_cons}" alt="Site em construção" /> 
-
-        </div>
-    </div>   
 </div>
 {literal}
     <script>
