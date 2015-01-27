@@ -26,17 +26,18 @@ abstract class Email {
 
     public function enviaEmail() {
         $this->preparaMesagem();
-        mail($this->getDestino(), $this->getAssunto(), $this->getMensagem(), $this->preparaHeaders());
+        return mail($this->getDestino(), $this->getAssunto(), $this->getMensagem(), $this->preparaHeaders());
     }
 
     protected function preparaHeaders() {
         $headers = "Content-Type:text/html; charset=UTF-8\n";
+        $headers .= "MIME-Version: 1.0\n";
         $headers .= "From: altamir.com.br<" . $this->getRemetente() . ">\n";
         $headers .= "X-Sender: <" . $this->getRemetente() . ">\n";
         $headers .= "X-Mailer: PHP v" . phpversion() . "\n";
         $headers .= "X-IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
         $headers .= "Return-Path: <" . $this->getRemetente() . ">\n";
-        $headers .= "MIME-Version: 1.0\n";
+        
         return $headers;
     }
 
