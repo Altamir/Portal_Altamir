@@ -10,7 +10,7 @@ $sm->assign("smMaterias",$materiaDAO->getAll());
 $userDAO = UserDAO::getInstacia();
 $sm->assign("user",$userDAO->getBy(1));
 
-$sm->assign("test", "");
+$sm->assign("test", "Sendo testado Em Producao");
 $sm->assign("titulo", "Quem sou.");
 $sm->assign("pg_atual", "Sobre");
 
