@@ -1,6 +1,6 @@
 <?php
 include_once 'BD.php';
-include_once './model/Secao.class..php';
+include_once './model/Secao.class.php';
 
 /**
  * Description of SecaoDAO
