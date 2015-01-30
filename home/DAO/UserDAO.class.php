@@ -32,6 +32,7 @@ class UserDAO {
             $obj = new User($linha['nome'], $linha['sobreNome'], $linha['email'], $linha['foto'], $linha['dataNasc'], $linha['dataCadas'], $linha['reputacao']);
             $obj->setId($linha['id']);
         }
+        
         return $obj;
     }
 
