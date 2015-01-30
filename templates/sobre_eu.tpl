@@ -54,10 +54,7 @@
                                     <h4>Cargo<small> Maître / Coordenador Operacional</small></h4>
                                     <h4>Período<small> Dezembro/2008 a junho/2011</small></h4>
                                 </div>
-                            </div>
-
-                            
-
+                            </div>               
                         </div>
                         <div class="col-xs-5">
                             <img class="img-responsive img-circle" src="{$user->getFoto()}" alt="Foto do {$user->getNome()}" />
