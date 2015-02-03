@@ -33,7 +33,7 @@
                                     <h4>Endereço <small>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                                                Onde eu Moro..
+                                                Av Farrapos...
                                             </button></small></h4>
                                     <h4>Telefone <small>(51) 8149-3024</small></h4>
                                 </div>
