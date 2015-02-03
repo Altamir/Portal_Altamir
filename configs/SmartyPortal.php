@@ -13,7 +13,7 @@ class SmartyPortal extends SmartyBC {
         parent::__construct();
         $this->setConfiguracoes();
         $this->assign("test", '');
-        $this->carregaMarcacaoGoogle();
+        //$this->carregaMarcacaoGoogle();
     }
 
     public function debugar() {
