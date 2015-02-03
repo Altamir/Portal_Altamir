@@ -1,4 +1,21 @@
 {include file='include/topo.tpl' } 
+<script type="text/javascript">
+    $(document).load(function (){
+        var map = null;
+        var latlng = new google.maps.LatLng(-29.767954, -57.071657);
+
+        var myOptions = {
+            zoom: 12,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        //criando o mapa
+        map = new google.maps.Map(document.getElementById("mapa"), myOptions);
+        alert('caee');
+    });   
+    
+</script>
 <div class="container">
     {if $test != ''}
         <div class="row">
@@ -22,7 +39,11 @@
                             <h3>Dados Pessoais</h3><hr>
                             <h4>Nome <small>{$user->getNome()} {$user->getSobrenome()}</small></h4> 
                             <h4>Email <small>{$user->getEmail()}</small></h4>
-                            <h4>Endereço <small>veja no mapa</small></h4>
+                            <h4>Endereço <small>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                        Onde eu Moro..
+                                    </button></small></h4>
                             <h4>Telefone <small>(51) 8149-3024</small></h4>
                             <hr><h3>Formação</h3><hr>
                             <h4>Graduação em Analise e Desenvolvimento de Sistemas  –<small> Universidade UniRitter Cursando 5º semestre em 2015/1</small></h4>
@@ -60,10 +81,30 @@
                             <img class="img-responsive img-circle" src="{$user->getFoto()}" alt="Foto do {$user->getNome()}" />
                         </div>
                     </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Meu Endereço</h4>
+                                </div>
+                                <div class="modal-body">
+                                <div id="mapa"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 
 </div>
+
 {include file='include/footer.tpl' }
