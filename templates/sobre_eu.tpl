@@ -1,5 +1,4 @@
 {include file='include/topo.tpl' } 
-
 <div class="container">
     {if $test != ''}
         <div class="row">
@@ -32,7 +31,7 @@
                                     <h4>Email <small>{$user->getEmail()}</small></h4>
                                     <h4>Endereço <small>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                                            <button type="button" class="btn btn-default" data-toggle="modal" id="btEnde" data-target="#myModal">
                                                 Av Farrapos...
                                             </button></small></h4>
                                     <h4>Telefone <small>(51) 8149-3024</small></h4>
@@ -119,5 +118,28 @@
             </div>
         </div>
     </div>
-</div>
+</div>                                    
+{literal}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myModal').on('shown.bs.modal', function () {
+                google.maps.event.trigger(map, 'resize');
+                map.setCenter(new google.maps.LatLng(-33.8688, 151.2195));
+            });
+        });
+
+        var map;
+
+        function initialize() {
+            var mapOptions = {
+                zoom: 8,
+                center: new google.maps.LatLng(-29.756200185902156, -57.08757859271242)
+            };
+
+            map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+{/literal}
 {include file='include/footer.tpl' }
