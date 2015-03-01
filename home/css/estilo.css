@@ -8,6 +8,17 @@ and open the template in the editor.
     Author     : Altamir
 */
 
+html, body, #map-canvas  {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#map-canvas {
+  width:500px;
+  height:480px;
+}
+
 body {
     margin-top: 60px;
 }

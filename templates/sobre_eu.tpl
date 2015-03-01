@@ -31,7 +31,7 @@
                                     <h4>Email <small>{$user->getEmail()}</small></h4>
                                     <h4>Endereço <small>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-default" data-toggle="modal" id="btEnde" data-target="#myModal">
+                                            <button type="button" class="btn btn-default" data-toggle="modal" id="btEnde" data-target="#myMapModal">
                                                 Av Farrapos...
                                             </button></small></h4>
                                     <h4>Telefone <small>(51) 8149-3024</small></h4>
@@ -96,13 +96,13 @@
                                 </div>  
                             </div>
                         </div>
-                    </div>
+                    </div>                   
                 </div>                
             </div>
         </div> 
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -110,7 +110,7 @@
                     <h4 class="modal-title" id="myModalLabel">Meu Endereço</h4>
                 </div>
                 <div class="modal-body">
-                    <div id="mapa"></div>
+                    <div id="map-canvas"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                                   
@@ -121,25 +121,56 @@
 </div>                                    
 {literal}
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#myModal').on('shown.bs.modal', function () {
-                google.maps.event.trigger(map, 'resize');
-                map.setCenter(new google.maps.LatLng(-33.8688, 151.2195));
-            });
+        var map;
+        var myCenter = new google.maps.LatLng(-30.016867, -51.207764);
+        var marker = new google.maps.Marker({
+            position: myCenter
         });
 
-        var map;
-
         function initialize() {
-            var mapOptions = {
-                zoom: 8,
-                center: new google.maps.LatLng(-29.756200185902156, -57.08757859271242)
+            var mapProp = {
+                center: myCenter,
+                zoom: 18,
+                draggable: false,
+                scrollwheel: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
             };
 
-            map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+            marker.setMap(map);
+
+            google.maps.event.addListener(marker, 'click', function () {
+
+                infowindow.setContent(contentString);
+                infowindow.open(map, marker);
+
+            });
+        }
+        ;
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        google.maps.event.addDomListener(window, "resize", resizingMap());
+
+        $('#myMapModal').on('show.bs.modal', function () {
+            //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
+            resizeMap();
+        })
+
+        function resizeMap() {
+            if (typeof map == "undefined")
+                return;
+            setTimeout(function () {
+                resizingMap();
+            }, 400);
         }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
+        function resizingMap() {
+            if (typeof map == "undefined")
+                return;
+            var center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        }
     </script>
 {/literal}
 {include file='include/footer.tpl' }
