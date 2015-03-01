@@ -10,7 +10,7 @@ $sm->assign("smMaterias",$materiaDAO->getAll());
 $userDAO = UserDAO::getInstacia();
 $sm->assign("user",$userDAO->getBy(1));
 
-$scriptGoogleMap = '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>';
+$scriptGoogleMap = '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDhFByQwwWlVwj6HyjBB4NL48YDGneEYHs&sensor=true"></script>';
 
 
 $sm->assign("test", "Sendo testado Em Producao");
