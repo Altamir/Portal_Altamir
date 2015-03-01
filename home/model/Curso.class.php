@@ -6,6 +6,7 @@
  * @author Altamir
  */
 class Curso {
+    private $id;
     private $titulo;
     private $descricao;
     private $entidade;
@@ -18,6 +19,14 @@ class Curso {
         $this->ano = $ano;
     }
     
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+        
     function getTitulo() {
         return $this->titulo;
     }

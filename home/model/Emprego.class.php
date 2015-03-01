@@ -49,7 +49,4 @@ class Empregos {
     function setPeriodo($periodo) {
         $this->periodo = $periodo;
     }
-
-
-
 }

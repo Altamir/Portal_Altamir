@@ -17,10 +17,19 @@ class Curriculo {
     private $experencia;
     
     function __construct($user) {
+        $this->experencia = array();
         $this->cursos = array();
         if($user instanceof User ){
             $this->user = $user;
         }        
+    }
+    
+    public function getAllExperencia() {
+        return $this->experencia;
+    }
+    
+    public function addExperencia($emprego) {
+        $this->experencia[] = $emprego;
     }
     
     public function setEndereco($endereco) {
